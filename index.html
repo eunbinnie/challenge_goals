@@ -18,6 +18,7 @@
 </head>
 
 <body>
+  <!-- navigation - login form -->
   <nav>
     <form class="hidden" id="login-form" action="" onsubmit="return false">
       <input type="text" id="name" minlength="2" maxlength="12" placeholder="Please enter your name" />
@@ -27,7 +28,10 @@
         </span>
       </button>
     </form>
+  </nav>
 
+  <!-- section1. name show form -->
+  <section class="show-form">
     <form class="hidden" id="show-form" action="" onsubmit="return false">
       <button id="logout-btn">
         <span class="material-icons">
@@ -35,14 +39,20 @@
         </span>
       </button>
     </form>
+  </section>
 
-  </nav>
-
+  <!-- section2. show clock -->
   <section id="clock-info">
     <div class="inner">
       <h1 class="date"></h1>
       <h1 class="clock">00 : 00 : 00</h1>
     </div>
+  </section>
+
+  <section class="to-do-list">
+    <form class="list-form" action="">
+      <input type="text" placeholder="Enter your TO DO list" onsubmit="return false" />
+    </form>
   </section>
 
   <!-- script js -->

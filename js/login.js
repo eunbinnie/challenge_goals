@@ -15,7 +15,7 @@ function logoutEvent() {
   newname.classList.add('hidden');
   name.value = "";
   loginform.classList.remove('hidden');
-  submitEvent();
+  loginform.addEventListener('submit', submitEvent);
 }
 
 // Welcome name 출력
