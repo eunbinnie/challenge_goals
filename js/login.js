@@ -9,15 +9,19 @@ const logoutbutton = document.querySelector("#logout-btn");
 
 // logout 버튼 클릭 이벤트
 function logoutEvent() {
+  const newname = document.querySelector(".newname");
   localStorage.removeItem('username');
   showform.classList.add('hidden');
+  newname.classList.add('hidden');
   name.value = "";
   loginform.classList.remove('hidden');
+  submitEvent();
 }
 
 // Welcome name 출력
 function printName(username) {
   const welcomname = document.createElement('span');
+  welcomname.classList.add('newname');
   welcomname.innerText = `Welcome ${username}!`;
   showform.prepend(welcomname);
   showform.classList.remove('hidden');
