@@ -1,6 +1,7 @@
 // local storage - LogIn
 const loginform = document.querySelector("#login-form");
 const showform = document.querySelector("#show-form");
+const listform = document.querySelector("#to-do-list");
 
 const name = document.querySelector("input");
 
@@ -13,6 +14,7 @@ function logoutEvent() {
   localStorage.removeItem('username');
   showform.classList.add('hidden');
   newname.classList.add('hidden');
+  listform.classList.add('hidden');
   name.value = "";
   loginform.classList.remove('hidden');
   loginform.addEventListener('submit', submitEvent);
@@ -25,6 +27,7 @@ function printName(username) {
   welcomname.innerText = `Welcome ${username}!`;
   showform.prepend(welcomname);
   showform.classList.remove('hidden');
+  listform.classList.remove('hidden');
   logoutbutton.addEventListener('click', logoutEvent);
 }
 
