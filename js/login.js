@@ -13,7 +13,7 @@ function logoutEvent() {
   const newname = document.querySelector(".newname");
   localStorage.removeItem('username');
   showform.classList.add('hidden');
-  newname.classList.add('hidden');
+  newname.remove();
   listform.classList.add('hidden');
   name.value = "";
   loginform.classList.remove('hidden');
