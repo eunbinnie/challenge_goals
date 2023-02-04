@@ -1,31 +1,50 @@
 // local storage - LogIn
-const form = document.querySelector("form");
+const loginform = document.querySelector("#login-form");
+const showform = document.querySelector("#show-form");
+
 const name = document.querySelector("input");
+
 const loginbutton = document.querySelector("#login-btn");
+const logoutbutton = document.querySelector("#logout-btn");
 
+// logout 버튼 클릭 이벤트
+function logoutEvent() {
+  localStorage.removeItem('username');
+  showform.classList.add('hidden');
+  name.value = "";
+  loginform.classList.remove('hidden');
+}
+
+// Welcome name 출력
 function printName(username) {
-  const welcomname = document.createElement('p');
+  const welcomname = document.createElement('span');
   welcomname.innerText = `Welcome ${username}!`;
-  form.appendChild(welcomname);
+  showform.prepend(welcomname);
+  showform.classList.remove('hidden');
+  logoutbutton.addEventListener('click', logoutEvent);
 }
 
+// 이름 입력 이벤트
 function submitEvent() {
-  localStorage.setItem('username', `${name.value}`);
-  const username = localStorage.getItem('username');
-  name.classList.add('hidden');
-  loginbutton.classList.add('hidden');
-  printName(username);
+  if (name.value === "") {
+
+  } else {
+    localStorage.setItem('username', `${name.value}`);
+    const username = localStorage.getItem('username');
+    loginform.classList.add('hidden');
+    printName(username);
+  }
 }
 
+// 화면 새로고침 이벤트
 function loadEvent() {
   const username = localStorage.getItem('username');
 
   if (username) {
     printName(username);
   } else {
-    name.classList.remove('hidden');
-    loginbutton.classList.remove('hidden');
-    form.addEventListener('submit', submitEvent);
+    loginform.classList.remove('hidden');
+    loginform.addEventListener('submit', submitEvent);
   }
 }
 
