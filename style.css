@@ -2,12 +2,6 @@
   box-sizing: border-box;
 }
 
-/* .inner {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-} */
-
 .hidden {
   display: none;
 }
@@ -22,21 +16,27 @@ img {
   opacity: 60%;
 }
 
-/* #clock-info {
-  width: 100%;
-  margin: auto;
+button {
+  background: none;
+  border: none;
 }
 
-#clock-info .inner {
+#login-form {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-content: center;
   align-items: center;
+  align-content: center;
 }
 
-#clock-info .date {
+#login-form input {
+  align-self: center;
 }
 
-#clock-info .clock {
-} */
+#login-form button {
+  display: flex;
+  align-self: center;
+}
+
+#login-form button span {
+  align-self: center;
+}
