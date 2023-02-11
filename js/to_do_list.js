@@ -2,51 +2,55 @@ const listForm = document.querySelector(".list-form");
 const todoInput = document.querySelector(".list-form input");
 const todoLists = document.querySelector("#to-do-list ul");
 
-const todos = [];
+let toDos = [];
 
 function deleteEvent(event) {
   const li = event.target.parentElement;
   li.remove();
-  todos = todos.filter(toDo => toDo.id !== parseInt(li.id));
-  console.log(todos)
-  inputEvent();
+  toDos = toDos.filter(todo => todo.id !== parseInt(li.id));
+  localStorage.setItem('todos', JSON.stringify(toDos));
 }
 
 function printList(item) {
   const list = document.createElement('li');
   list.id = item.id;
   const span = document.createElement('span');
-  span.innerText = item;
-  list.appendChild(span);
-
   const deleteBtn = document.createElement('button');
-  deleteBtn.classList.add('delete');
+
+  span.innerText = item.text;
   deleteBtn.innerText = "✖";
-  list.appendChild(deleteBtn);
+
+  deleteBtn.classList.add('delete');
+
   deleteBtn.addEventListener('click', deleteEvent);
 
+  list.appendChild(span);
+  list.appendChild(deleteBtn);
   todoLists.appendChild(list);
 }
 
-function getLocalStorage() {
-  const fromLocalItem = localStorage.getItem('todos');
-  const localList = JSON.parse(fromLocalItem);
-  console.log(localList);
-  localList.forEach(element => {
-    todos.push(element);
-    printList(element);
-  });
-}
-
-function inputEvent() {
+function inputEvent(event) {
   const inputValue = todoInput.value;
-
-  todos.push(inputValue);
-  localStorage.setItem('todos', JSON.stringify(todos));
-  printList(inputValue);
-
   todoInput.value = "";
+
+  const newTodoObj = {
+    text: inputValue,
+    id: Date.now(),
+  };
+
+  toDos.push(newTodoObj);
+  printList(newTodoObj);
+  localStorage.setItem('todos', JSON.stringify(toDos));
 }
 
 listForm.addEventListener('submit', inputEvent);
-window.addEventListener('load', getLocalStorage);
+
+const savedTodos = localStorage.getItem('todos');
+
+if (savedTodos !== null) {
+  const localList = JSON.parse(savedTodos);
+  toDos = localList;
+  localList.forEach(element => {
+    printList(element);
+  });
+}
