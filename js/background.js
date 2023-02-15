@@ -20,5 +20,6 @@ const images = [
 const image = Math.floor(Math.random() * images.length);
 
 const imgTag = document.createElement("img");
+imgTag.classList.add('back-img');
 imgTag.src = `./img/${images[image]}`;
 document.body.append(imgTag);
