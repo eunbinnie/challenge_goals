@@ -16,66 +16,61 @@
 </head>
 
 <body>
-  <div class="left">
-    <!-- navigation - login form -->
-    <nav class="hidden">
-      <div class="inner">
-        <form id="login-form" action="" onsubmit="return false">
-          <input type="text" id="name" minlength="2" maxlength="12" placeholder="Please enter your name" />
-          <button id="login-btn">
-            <span class="material-icons">
-              login
-            </span>
-          </button>
-        </form>
+  <!-- navigation - login form -->
+  <nav class="hidden">
+    <div class="inner">
+      <form id="login-form" action="" onsubmit="return false">
+        <input type="text" id="name" minlength="2" maxlength="12" placeholder="Please enter your name" />
+        <button id="login-btn">
+          <span class="material-icons">
+            login
+          </span>
+        </button>
+      </form>
+    </div>
+
+  </nav>
+
+  <!-- section1. name show form -->
+  <section class="show-form hidden">
+    <div class="inner">
+      <form id="show-form" action="" onsubmit="return false">
+        <button id="logout-btn">
+          <span class="material-icons">
+            logout
+          </span>
+        </button>
+      </form>
+    </div>
+
+  </section>
+
+  <!-- section2. show clock -->
+  <section id="clock-info">
+    <div class="inner">
+      <h1 class="date"></h1>
+      <h1 class="clock">00 : 00 : 00</h1>
+
+      <div class="weather">
+        <img src="" alt="" />
+        <span id="weather"></span>
+        <span id="city"></span>
       </div>
+    </div>
 
-    </nav>
-
-    <!-- section1. name show form -->
-    <section class="show-form hidden">
-      <div class="inner">
-        <form id="show-form" action="" onsubmit="return false">
-          <button id="logout-btn">
-            <span class="material-icons">
-              logout
-            </span>
-          </button>
-        </form>
-      </div>
-
-    </section>
-
-    <!-- section2. show clock -->
-    <section id="clock-info">
-      <div class="inner">
-        <h1 class="date"></h1>
-        <h1 class="clock">00 : 00 : 00</h1>
-
-        <div class="weather">
-          <img src="" alt="" />
-          <span id="weather"></span>
-          <span id="city"></span>
-        </div>
-      </div>
-
-    </section>
-  </div>
+  </section>
 
 
   <!-- section3. to-do-list -->
-  <div class="right">
-    <section id="to-do-list">
-      <div class="inner">
-        <form class="list-form hidden" action="" onsubmit="return false">
-          <input type="text" placeholder="Enter your TO DO list 🖋" />
-        </form>
+  <section id="to-do-list">
+    <div class="inner">
+      <form class="list-form hidden" action="" onsubmit="return false">
+        <input type="text" placeholder="Enter your TO DO list 🖋" />
+      </form>
 
-        <ul class="todos hidden"></ul>
-      </div>
-    </section>
-  </div>
-
+      <ul class="todos hidden"></ul>
+    </div>
+  </section>
 
   <!-- script js -->
   <script src="./js/background.js"></script>

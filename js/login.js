@@ -28,7 +28,7 @@ function logoutEvent() {
 function printName(username) {
   const welcomname = document.createElement('span');
   welcomname.classList.add('newname');
-  welcomname.innerText = `Welcome ${username}🖤`;
+  welcomname.innerText = `Welcome, ${username}🖤`;
   showform.prepend(welcomname);
   showformForHidden.classList.remove('hidden');
   listform.classList.remove('hidden');

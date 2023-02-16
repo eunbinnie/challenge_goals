@@ -15,7 +15,7 @@ function getSuccuess(position) {
       weatherIcon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
       weatherIcon.alt = `${data.weather[0].main}`;
       city.innerText = data.name;
-      weather.innerText = `${data.weather[0].main} / ${data.main.temp}`;
+      weather.innerText = `${data.main.temp}`;
     });
 }
 

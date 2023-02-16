@@ -1,24 +1,18 @@
+:root {
+  --font-large-size: 32px;
+
+  --margin-top: 30px;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   font-family: 'Ubuntu', sans-serif;
-  height: 100vh;
+  height: 100%;
   margin: auto 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.left {
-  align-self: center;
-  margin-right: 100px;
-}
-
-.right {
-  margin-top: 30px;
-  margin-left: 100px;
+  margin-top: var(--margin-top);
 }
 
 .inner {
@@ -37,7 +31,7 @@ body {
 
 .back-img {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
@@ -104,7 +98,7 @@ nav form {
   font-style: italic;
   color: #fff;
   font-weight: bold;
-  font-size: 32px;
+  font-size: var(--font-large-size);
 }
 
 #show-form button {
@@ -113,13 +107,22 @@ nav form {
 
 /* CLOCK INFO */
 #clock-info {
-  margin-top: 30px;
+  margin-top: var(--margin-top);
 }
 
 #clock-info .inner {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#clock-info .inner .date {
+  font-style: italic;
+}
+
+#clock-info .inner .clock {
+  font-size: var(--font-large-size);
+  font-weight: 700;
 }
 
 #clock-info .inner .weather {
@@ -129,8 +132,8 @@ nav form {
 }
 
 /* TO DO LIST */
-
 #to-do-list .inner {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -141,15 +144,16 @@ nav form {
 }
 
 #to-do-list .inner ul {
+  width: 400px;
+  height: 400px;
   margin: 15px 15px 0 15px;
   padding: 15px 20px;
   background-color: #fff;
   opacity: 70%;
   border-radius: 10px;
-  width: 400px;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  overflow-y: scroll;
 }
 
 #to-do-list .inner ul.hidden {
@@ -160,25 +164,6 @@ nav form {
   max-width: 360px;
   word-break: break-all;
   padding-bottom: 5px;
-}
-
-@media (max-width:1300px) {
-  body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    margin-top: 30px;
-  }
-
-  .left {
-    margin-right: 0;
-  }
-
-  .right {
-    margin-top: 30px;
-    margin-left: 0;
-  }
 }
 
 @media (max-width: 430px) {
