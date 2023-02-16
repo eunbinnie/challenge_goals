@@ -1,7 +1,10 @@
 // local storage - LogIn
 const loginform = document.querySelector("#login-form");
+const loginformForHidden = document.querySelector("nav");
 const showform = document.querySelector("#show-form");
-const listform = document.querySelector("#to-do-list");
+const showformForHidden = document.querySelector(".show-form");
+const listform = document.querySelector(".list-form");
+const todoUl = document.querySelector(".todos");
 
 const name = document.querySelector("input");
 
@@ -12,11 +15,12 @@ const logoutbutton = document.querySelector("#logout-btn");
 function logoutEvent() {
   const newname = document.querySelector(".newname");
   localStorage.removeItem('username');
-  showform.classList.add('hidden');
+  showformForHidden.classList.add('hidden');
   newname.remove();
   listform.classList.add('hidden');
+  todoUl.classList.add('hidden');
   name.value = "";
-  loginform.classList.remove('hidden');
+  loginformForHidden.classList.remove('hidden');
   loginform.addEventListener('submit', submitEvent);
 }
 
@@ -26,8 +30,9 @@ function printName(username) {
   welcomname.classList.add('newname');
   welcomname.innerText = `Welcome ${username}🖤`;
   showform.prepend(welcomname);
-  showform.classList.remove('hidden');
+  showformForHidden.classList.remove('hidden');
   listform.classList.remove('hidden');
+  todoUl.classList.remove('hidden');
   logoutbutton.addEventListener('click', logoutEvent);
 }
 
@@ -38,7 +43,7 @@ function submitEvent() {
   } else {
     localStorage.setItem('username', `${name.value}`);
     const username = localStorage.getItem('username');
-    loginform.classList.add('hidden');
+    loginformForHidden.classList.add('hidden');
     printName(username);
   }
 }
@@ -50,7 +55,7 @@ function loadEvent() {
   if (username) {
     printName(username);
   } else {
-    loginform.classList.remove('hidden');
+    loginformForHidden.classList.remove('hidden');
     loginform.addEventListener('submit', submitEvent);
   }
 }

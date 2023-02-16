@@ -7,63 +7,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 
-  <!-- material google icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-
-  <!-- reset css -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
 
-  <!-- link css -->
   <link rel="stylesheet" href="./style.css" />
 </head>
 
 <body>
-  <!-- navigation - login form -->
-  <nav>
-    <form class="hidden" id="login-form" action="" onsubmit="return false">
-      <input type="text" id="name" minlength="2" maxlength="12" placeholder="Please enter your name" />
-      <button id="login-btn">
-        <span class="material-icons">
-          login
-        </span>
-      </button>
-    </form>
-  </nav>
-
-  <!-- section1. name show form -->
-  <section class="show-form">
-    <form class="hidden" id="show-form" action="" onsubmit="return false">
-      <button id="logout-btn">
-        <span class="material-icons">
-          logout
-        </span>
-      </button>
-    </form>
-  </section>
-
-  <!-- section2. show clock -->
-  <section id="clock-info">
-    <div class="inner">
-      <h1 class="date"></h1>
-      <h1 class="clock">00 : 00 : 00</h1>
-
-      <div class="weather">
-        <img src="" alt="weather icon" />
-        <span id="weather"></span>
-        <span id="city"></span>
+  <div class="left">
+    <!-- navigation - login form -->
+    <nav class="hidden">
+      <div class="inner">
+        <form id="login-form" action="" onsubmit="return false">
+          <input type="text" id="name" minlength="2" maxlength="12" placeholder="Please enter your name" />
+          <button id="login-btn">
+            <span class="material-icons">
+              login
+            </span>
+          </button>
+        </form>
       </div>
-    </div>
 
-  </section>
+    </nav>
+
+    <!-- section1. name show form -->
+    <section class="show-form hidden">
+      <div class="inner">
+        <form id="show-form" action="" onsubmit="return false">
+          <button id="logout-btn">
+            <span class="material-icons">
+              logout
+            </span>
+          </button>
+        </form>
+      </div>
+
+    </section>
+
+    <!-- section2. show clock -->
+    <section id="clock-info">
+      <div class="inner">
+        <h1 class="date"></h1>
+        <h1 class="clock">00 : 00 : 00</h1>
+
+        <div class="weather">
+          <img src="" alt="" />
+          <span id="weather"></span>
+          <span id="city"></span>
+        </div>
+      </div>
+
+    </section>
+  </div>
+
 
   <!-- section3. to-do-list -->
-  <section class="hidden" id="to-do-list">
-    <form class="list-form" action="" onsubmit="return false">
-      <input type="text" placeholder="Enter your TO DO list" />
-    </form>
+  <div class="right">
+    <section id="to-do-list">
+      <div class="inner">
+        <form class="list-form hidden" action="" onsubmit="return false">
+          <input type="text" placeholder="Enter your TO DO list 🖋" />
+        </form>
 
-    <ul class="todos"></ul>
-  </section>
+        <ul class="todos hidden"></ul>
+      </div>
+    </section>
+  </div>
+
 
   <!-- script js -->
   <script src="./js/background.js"></script>
